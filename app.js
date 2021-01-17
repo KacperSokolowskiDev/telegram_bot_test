@@ -53,7 +53,7 @@ bot.on("message", (msg) => {
 });
 
 //sending polls
-bot.onText(/\/poll/, (msg, match) => {
+bot.onText(/\/poll/, (msg) => {
   const chatId = msg.chat.id;
   console.log("Poll sent !");
   bot.sendPoll(chatId, "Am I a cool bot ?", ["Sure buddy", "Not yet"]);
