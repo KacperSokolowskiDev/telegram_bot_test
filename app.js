@@ -51,3 +51,10 @@ bot.on("message", (msg) => {
     bot.sendMessage(chatId, "Fuck you too");
   }
 });
+
+//sending polls
+bot.onText(/\/poll/, (msg, match) => {
+  const chatId = msg.chat.id;
+  console.log("Poll sent !");
+  bot.sendPoll(chatId, "Am I a cool bot ?", ["Sure buddy", "Not yet"]);
+});
