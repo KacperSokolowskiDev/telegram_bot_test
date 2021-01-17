@@ -20,7 +20,7 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
 
 let users = [];
 
-bot.onText(/\/register/, (msg, match) => {
+bot.onText(/\/register/, (msg) => {
   const chatId = msg.chat.id;
   users.push(chatId);
   console.log("user registered!");
@@ -30,6 +30,9 @@ bot.onText(/\/register/, (msg, match) => {
 setInterval(function () {
   if (users.length > 0) {
     for (let i = 0; i < users.length; i++) {
+      if (msg.text == "stop") {
+        break;
+      }
       bot.sendMessage(users[i], "Is this annoying ?");
     }
   } else {
